@@ -1,29 +1,41 @@
 import java.util.Scanner;
 
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-
-        inicioDePrograma();
+        ejecutar();
     }
 
-    private static void inicioDePrograma() {
+    private static void ejecutar() {
         Scanner scanner = new Scanner(System.in);
-        Sistema sistema = new Sistema();
-        sistema.guardarHotel("1111");
-        String nombreCliente = preguntar("nombre", scanner);
-        String numTarjeta = preguntar("numero de tarjeta", scanner);
-        sistema.guardarCliente(nombreCliente,numTarjeta);
-
-        hotel.hacerReserva(cliente);
+        EmpleadoDAO dao = new EmpleadoDAO();
+        String opcion = "";
+        do {
+            switch (opcion) {
+                case "1":
+                    String nombreParaAgregar = preguntar("Ingrese el nombre a agregar:", scanner);
+            }
+            menu();
+        }while (opcion != "5");
     }
 
     private static String preguntar(String pregunta, Scanner scanner) {
-        print("Ingrese su " + pregunta);
+        String respuesta = "";
+        print(pregunta);
+        respuesta = scanner.nextLine();
         print("> ");
-        String respuesta = scanner.nextLine();
         return respuesta;
     }
 
+    private static void menu() {
+        print("¿Que desea hacer?");
+        print("1) Agregar Empleado");
+        print("2) Obtener Empleado");
+        print("3) Eliminar Empleado");
+        print("4) Actualizar Empleado");
+        print("5) Salir");
+    }
     private static void print(String string) {
         System.out.println(string);
     }
